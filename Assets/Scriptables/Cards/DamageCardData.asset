@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae83ed12bd3e4ab387926b9cb93ee33a, type: 3}
   m_Name: DamageCardData
   m_EditorClassIdentifier: 
-  cardImage: {fileID: 21300000, guid: 216c53aef79eaaf40a1800cc5e542dc3, type: 3}
   cardName: DAMAGE
+  cardImage: {fileID: 21300000, guid: 216c53aef79eaaf40a1800cc5e542dc3, type: 3}
+  cardDescription: Card which deals damage

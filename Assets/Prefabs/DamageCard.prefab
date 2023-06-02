@@ -60,6 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994da26b1b5445828d62a5fded919e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardConfig: {fileID: 11400000, guid: 78709e62ec88b0249b1b0e63f267187a, type: 2}
+  cardData:
+    energyCost: 2
   target: {fileID: 0}
 --- !u!114 &7828351584566227209
 MonoBehaviour:
@@ -75,7 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardModel:
     cardSpriteRenderer: {fileID: 7828351585098662200}
-  cardData: {fileID: 11400000, guid: 78709e62ec88b0249b1b0e63f267187a, type: 2}
 --- !u!1 &7828351585098662151
 GameObject:
   m_ObjectHideFlags: 0

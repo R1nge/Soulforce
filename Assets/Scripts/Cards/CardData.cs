@@ -1,13 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace Cards
 {
-    [CreateAssetMenu(fileName = "CardData", menuName = "CardData", order = 0)]
-    public class CardData : ScriptableObject
+    [Serializable]
+    public class CardData
     {
-        [SerializeField] private Sprite cardImage;
-        [SerializeField] private string cardName;
-        public Sprite CardImage => cardImage;
-        public string CardName => cardName;
+        public int energyCost;
     }
 }
