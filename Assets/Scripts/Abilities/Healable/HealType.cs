@@ -3,6 +3,6 @@
     public enum HealType
     {
         Single,
-        Continuous
+        Continuous //TODO: add continuous damage using UniTask
     }
 }
