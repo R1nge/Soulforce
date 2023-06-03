@@ -9,16 +9,16 @@ namespace Cards.CardFactory
 {
     public class DamageCardFactory : CardFactory
     {
+        public DamageCardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase target, CardBehaviour cardPrefab, EnergyController energyController) : base(objectResolver, cardConfig, cardData, target, cardPrefab, energyController)
+        {
+        }
+
         public override CardBase CreateCard(Vector3 position)
         {
-            var card = new DamageCard(cardConfig, cardData, target, EnergyController);
+            var card = new DamageCard(CardConfig, CardData, Target, EnergyController);
             var cardPrefab = ObjectResolver.Instantiate(CardPrefab, position, Quaternion.identity);
             cardPrefab.Init(card);
             return card;
-        }
-
-        public DamageCardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase target, CardBehaviour cardPrefab, EnergyController energyController) : base(objectResolver, cardConfig, cardData, target, cardPrefab, energyController)
-        {
         }
     }
 }

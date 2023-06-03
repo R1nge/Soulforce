@@ -19,6 +19,7 @@ namespace Cards.Behaviours
             _cardUIController.Init(_card);
         }
 
+        //TODO: set target with a method, to be able to use card on different targets
         private void OnMouseDown()
         {
             if (_card.TryUseCard())

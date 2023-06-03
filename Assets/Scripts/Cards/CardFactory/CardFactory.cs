@@ -8,25 +8,23 @@ namespace Cards.CardFactory
 {
     public abstract class CardFactory
     {
-        //TODO: set target with a method, to be able to use card on different targets
-        
-        protected CardConfig cardConfig;
-        protected CardData cardData;
-        protected UnitBase target;
-        protected CardBehaviour CardPrefab;
-        protected IObjectResolver ObjectResolver;
-        protected EnergyController EnergyController;
+        protected readonly CardConfig CardConfig;
+        protected readonly CardData CardData;
+        protected readonly UnitBase Target;
+        protected readonly CardBehaviour CardPrefab;
+        protected readonly IObjectResolver ObjectResolver;
+        protected readonly EnergyController EnergyController;
 
-        public CardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase target, CardBehaviour cardPrefab, EnergyController energyController)
+        protected CardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase target, CardBehaviour cardPrefab, EnergyController energyController)
         {
-            this.cardConfig = cardConfig;
-            this.cardData = cardData;
-            this.target = target;
+            CardConfig = cardConfig;
+            CardData = cardData;
+            Target = target;
             ObjectResolver = objectResolver;
             CardPrefab = cardPrefab;
             EnergyController = energyController;
         }
-
+        
         public abstract CardBase CreateCard(Vector3 position);
     }
 }

@@ -12,10 +12,6 @@ namespace Deck
         public void AddCard(CardBase card) => _deck.Add(card);
         public void RemoveCard(CardBase card) => _deck.Remove(card);
         public void Shuffle() => _deck.Shuffle();
-        public CardBase DrawCard()
-        {
-            Debug.Log($"COUNT" + _deck.Count);
-            return _deck.GetRandomElement();
-        }
+        public CardBase DrawCard() => _deck.GetRandomElement();
     }
 }

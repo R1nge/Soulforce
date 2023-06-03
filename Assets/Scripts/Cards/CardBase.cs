@@ -1,7 +1,5 @@
 ﻿using Energy;
 using Units;
-using UnityEngine;
-using VContainer;
 
 namespace Cards
 {
@@ -11,7 +9,7 @@ namespace Cards
         protected readonly UnitBase Target;
         private readonly EnergyController _energyController;
 
-        public CardBase(CardConfig cardConfig, CardData cardData, UnitBase target, EnergyController energyController)
+        protected CardBase(CardConfig cardConfig, CardData cardData, UnitBase target, EnergyController energyController)
         {
             CardConfig = cardConfig;
             _cardData = cardData;

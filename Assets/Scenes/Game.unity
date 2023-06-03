@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 1827431152}
   - component: {fileID: 1827431153}
   m_Layer: 0
-  m_Name: CardFactory
+  m_Name: DeckTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
