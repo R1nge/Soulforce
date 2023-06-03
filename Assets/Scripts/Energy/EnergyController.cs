@@ -8,7 +8,7 @@ namespace Energy
 {
     public class EnergyController : IInitializable, IDisposable
     {
-        private readonly EnergyResource _energyResource = new(2);
+        private readonly EnergyResource _energyResource = new(200);
         private readonly TurnController _turnController;
 
         [Inject]

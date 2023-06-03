@@ -7,24 +7,17 @@ namespace UI.Card
     {
         [SerializeField] private CardUIModel cardModel;
         private CardUIView _cardView;
-        private CardBase _card;
 
         private void Awake()
         {
             _cardView = new(cardModel.name,cardModel.image, cardModel.description);
-            _card = GetComponent<CardBase>();
         }
 
-        private void Start()
+        public void Init(CardBase card)
         {
-            Init();
-        }
-
-        private void Init()
-        {
-            _cardView.SetCardName(_card.CardConfig.CardName);
-            _cardView.SetCardImage(_card.CardConfig.CardImage);
-            _cardView.SetCardDescription(_card.CardConfig.CardDescription);
+            _cardView.SetCardName(card.CardConfig.CardName);
+            _cardView.SetCardImage(card.CardConfig.CardImage);
+            _cardView.SetCardDescription(card.CardConfig.CardDescription);
         }
     }
 }

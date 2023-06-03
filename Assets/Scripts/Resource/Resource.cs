@@ -29,6 +29,6 @@ namespace Resource
             return true;
         }
 
-        public virtual void ResetAmount() => CurrentAmount = MaxAmount;
+        public void ResetAmount() => CurrentAmount = MaxAmount;
     }
 }

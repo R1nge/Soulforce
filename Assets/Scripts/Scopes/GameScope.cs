@@ -1,4 +1,5 @@
-﻿using Dice;
+﻿using Deck;
+using Dice;
 using Energy;
 using TurnFlow;
 using VContainer;
@@ -13,6 +14,7 @@ namespace Scopes
             builder.Register<TurnController>(Lifetime.Singleton);
             builder.RegisterEntryPoint<EnergyController>().AsSelf();
             builder.RegisterEntryPoint<DiceRollController>().AsSelf();
+            builder.Register<DeckController>(Lifetime.Singleton).AsSelf();
         }
     }
 }

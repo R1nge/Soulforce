@@ -5,32 +5,31 @@ using VContainer;
 
 namespace Cards
 {
-    public abstract class CardBase : MonoBehaviour
+    public abstract class CardBase
     {
-        [SerializeField] protected CardConfig cardConfig;
-        [SerializeField] protected CardData cardData;
-        [SerializeField] protected UnitBase target;
-        private EnergyController _energyController;
+        private readonly CardData _cardData;
+        protected readonly UnitBase Target;
+        private readonly EnergyController _energyController;
 
-        [Inject]
-        private void Construct(EnergyController energyController)
+        public CardBase(CardConfig cardConfig, CardData cardData, UnitBase target, EnergyController energyController)
         {
+            CardConfig = cardConfig;
+            _cardData = cardData;
+            Target = target;
             _energyController = energyController;
         }
 
-        public CardConfig CardConfig => cardConfig;
-        public CardData CardData() => cardData;
+        public CardConfig CardConfig { get; }
 
         protected abstract void UseCard();
 
-        private void OnMouseDown() => TryUseCard();
-
-        private void TryUseCard()
+        public bool TryUseCard()
         {
-            if (!CanUseCard()) return;
+            if (!CanUseCard()) return false;
             UseCard();
+            return true;
         }
 
-        private bool CanUseCard() => _energyController.GetEnergyResource().TrySpend(cardData.energyCost);
+        private bool CanUseCard() => _energyController.GetEnergyResource().TrySpend(_cardData.energyCost);
     }
 }
