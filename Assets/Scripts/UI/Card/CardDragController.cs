@@ -76,6 +76,6 @@ namespace UI.Card
             };
         }
 
-        private bool HasDraggedObject() => _draggedObject != null;
+        private bool HasDraggedObject() => _draggedObject != null && _selectedCard != null;
     }
 }
