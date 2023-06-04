@@ -4,9 +4,9 @@ using Units;
 
 namespace Cards
 {
-    public class DamageCard : CardBase
+    public class DamageTargetCard : CardBase
     {
-        public DamageCard(CardConfig cardConfig, CardData cardData, UnitBase target, EnergyController energyController) : base(cardConfig, cardData, target, energyController)
+        public DamageTargetCard(UnitBase player, CardConfig cardConfig, CardData cardData, EnergyController energyController) : base(player, cardConfig, cardData, energyController)
         {
         }
 

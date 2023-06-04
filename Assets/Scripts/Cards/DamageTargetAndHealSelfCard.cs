@@ -5,9 +5,9 @@ using Units;
 
 namespace Cards
 {
-    public class DamageAndHealCard : CardBase
+    public class DamageTargetAndHealSelfCard : CardBase
     {
-        public DamageAndHealCard(CardConfig cardConfig, CardData cardData, UnitBase target, EnergyController energyController) : base(cardConfig, cardData, target, energyController)
+        public DamageTargetAndHealSelfCard(UnitBase player, CardConfig cardConfig, CardData cardData, EnergyController energyController) : base(player, cardConfig, cardData, energyController)
         {
         }
 
@@ -15,7 +15,7 @@ namespace Cards
         {
             var damageAbility = new DamageAbility(10, DamageType.Physical);
             var healAbility = new HealAbility(10, HealType.Single);
-            healAbility.ApplyHeal(Target);
+            healAbility.ApplyHeal(Player);
             damageAbility.ApplyDamage(Target);
         }
     }

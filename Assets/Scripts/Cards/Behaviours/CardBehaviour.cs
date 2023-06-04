@@ -1,4 +1,5 @@
 ﻿using UI.Card;
+using Units;
 using UnityEngine;
 
 namespace Cards.Behaviours
@@ -19,13 +20,11 @@ namespace Cards.Behaviours
             _cardUIController.Init(_card);
         }
 
-        //TODO: set target with a method, to be able to use card on different targets
-        private void OnMouseDown()
+        public bool TryUseCard(UnitBase unit)
         {
-            if (_card.TryUseCard())
-            {
-                Destroy(gameObject);
-            }
+            if (!_card.TryUseCard(unit)) return false;
+            Destroy(gameObject);
+            return true;
         }
     }
 }
