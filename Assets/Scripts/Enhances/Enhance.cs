@@ -7,14 +7,11 @@ namespace Enhances
     {
         protected int Duration = 2;
 
-        public virtual void Execute(UnitBase Target)
+        public int GetDuration() => Duration;
+
+        public virtual void Execute(UnitBase target)
         {
             Duration--;
-            if (Duration <= 0)
-            {
-                Target.RemoveEnhance(this);
-                Debug.Log("Removed");
-            }
         }
     }
 }

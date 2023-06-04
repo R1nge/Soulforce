@@ -13,7 +13,7 @@ namespace Units
     {
         [SerializeField] protected int health;
         protected IElement Element;
-        private List<Enhance> _enhances = new();
+        private readonly List<Enhance> _enhances = new();
         private TurnController _turnController;
 
         [Inject]
@@ -32,6 +32,14 @@ namespace Units
             foreach (var enhance in _enhances)
             {
                 enhance.Execute(this);
+            }
+
+            for (var i = _enhances.Count - 1; i >= 0; i--)
+            {
+                if (_enhances[i].GetDuration() <= 0)
+                {
+                    _enhances.RemoveAt(i);
+                }
             }
         }
 
