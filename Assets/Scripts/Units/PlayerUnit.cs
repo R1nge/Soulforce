@@ -13,10 +13,5 @@ namespace Units
                 Debug.Log("Gameover");
             }
         }
-
-        protected override void ApplyHealInternal(int duration, int amount)
-        {
-            health += amount;
-        }
     }
 }

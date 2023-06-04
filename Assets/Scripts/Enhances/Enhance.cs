@@ -1,17 +1,18 @@
 ﻿using Units;
-using UnityEngine;
 
 namespace Enhances
 {
     public abstract class Enhance
     {
-        protected int Duration = 2;
+        private int _duration;
 
-        public int GetDuration() => Duration;
-
-        public virtual void Execute(UnitBase target)
+        protected Enhance(int duration)
         {
-            Duration--;
+            _duration = duration;
         }
+
+        public int GetDuration() => _duration;
+
+        public virtual void Execute(UnitBase target) => _duration--;
     }
 }

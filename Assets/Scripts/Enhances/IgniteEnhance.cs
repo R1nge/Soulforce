@@ -5,6 +5,10 @@ namespace Enhances
 {
     public class IgniteEnhance : Enhance
     {
+        public IgniteEnhance(int duration) : base(duration)
+        {
+        }
+
         public override void Execute(UnitBase target)
         {
             Debug.Log($"Ignite {target.name}");

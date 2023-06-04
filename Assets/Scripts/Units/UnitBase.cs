@@ -22,10 +22,7 @@ namespace Units
             _turnController = turnController;
         }
 
-        private void Awake()
-        {
-            _turnController.OnTurnEnded += ExecuteEnhances;
-        }
+        private void Awake() => _turnController.OnTurnEnded += ExecuteEnhances;
 
         private void ExecuteEnhances()
         {
@@ -49,15 +46,11 @@ namespace Units
             TakeDamageInternal(elementType, damage);
         }
 
-        protected abstract void TakeDamageInternal(ElementType elementType, int damage);
-        protected abstract void ApplyHealInternal(int duration, int amount);
-        public void ApplyHeal(int duration, int amount) => ApplyHealInternal(duration, amount);
+        protected virtual void TakeDamageInternal(ElementType elementType, int damage) => health -= damage;
+        public void ApplyHeal(int amount) => ApplyHealInternal(amount);
+        protected virtual void ApplyHealInternal(int amount) => health += amount;
         public void AddEnhance(Enhance enhance) => _enhances.Add(enhance);
-        public void RemoveEnhance(Enhance enhance) => _enhances.Remove(enhance);
 
-        private void OnDestroy()
-        {
-            _turnController.OnTurnStarted -= ExecuteEnhances;
-        }
+        private void OnDestroy() => _turnController.OnTurnStarted -= ExecuteEnhances;
     }
 }
