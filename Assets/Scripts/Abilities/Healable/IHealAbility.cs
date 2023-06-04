@@ -3,7 +3,7 @@
     public interface IHealAbility
     {
         int GetHeal();
-        HealType GetHealType();
+        DurationType GetDurationType();
         void ApplyHeal(IHealable healable);
     }
 }

@@ -15,7 +15,7 @@ namespace Cards.CardFactory
 
         public override CardBase CreateCard(Vector3 position, Transform parent)
         {
-            var card = new DamageTargetCard(Player, CardConfig, CardData, EnergyController);
+            var card = new SingleElectricDamageTargetCard(Player, CardConfig, CardData, EnergyController);
             var cardPrefab = ObjectResolver.Instantiate(CardPrefab, position, Quaternion.identity, parent);
             cardPrefab.transform.localPosition = position;
             cardPrefab.Init(card);

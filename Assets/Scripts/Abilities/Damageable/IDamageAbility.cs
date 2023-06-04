@@ -3,7 +3,7 @@
     public interface IDamageAbility
     {
         int GetDamage();
-        DamageType GetDamageType();
+        ElementType GetElementType();
         void ApplyDamage(IDamageable damageable);
     }
 }

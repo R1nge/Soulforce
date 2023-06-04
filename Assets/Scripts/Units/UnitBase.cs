@@ -1,4 +1,5 @@
-﻿using Abilities.Damageable;
+﻿using Abilities;
+using Abilities.Damageable;
 using Abilities.Healable;
 using UnityEngine;
 
@@ -8,15 +9,9 @@ namespace Units
     {
         [SerializeField] protected int health;
 
-        public void TakeDamage(DamageType damageType, int damage)
-        {
-            TakeDamageInternal(damageType, damage);
-        }
-
-        protected abstract void TakeDamageInternal(DamageType damageType, int damage);
-
-        public void ApplyHeal(HealType type, int amount) => ApplyHealInternal(type, amount);
-
-        protected abstract void ApplyHealInternal(HealType type, int amount);
+        public void TakeDamage(ElementType elementType, int damage) => TakeDamageInternal(elementType, damage);
+        protected abstract void TakeDamageInternal(ElementType elementType, int amount);
+        protected abstract void ApplyHealInternal(DurationType durationType, int amount);
+        public void ApplyHeal(DurationType type, int amount) => ApplyHealInternal(type, amount);
     }
 }

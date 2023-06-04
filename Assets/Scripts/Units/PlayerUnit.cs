@@ -1,20 +1,19 @@
-﻿using Abilities.Damageable;
-using Abilities.Healable;
+﻿using Abilities;
 
 namespace Units
 {
     public class PlayerUnit : UnitBase
     {
-        protected override void TakeDamageInternal(DamageType damageType, int damage)
+        protected override void TakeDamageInternal(ElementType elementType, int amount)
         {
-            health -= damage;
+            health -= amount;
             if (health <= 0)
             {
                 //Destroy(gameObject);
             }
         }
 
-        protected override void ApplyHealInternal(HealType type, int amount)
+        protected override void ApplyHealInternal(DurationType durationType, int amount)
         {
             health += amount;
         }
