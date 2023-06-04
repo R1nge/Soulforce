@@ -1,15 +1,16 @@
 ﻿using Abilities;
+using UnityEngine;
 
 namespace Units
 {
     public class PlayerUnit : UnitBase
     {
-        protected override void TakeDamageInternal(ElementType elementType, int amount)
+        protected override void TakeDamageInternal(ElementType elementType, int damage)
         {
-            health -= amount;
             if (health <= 0)
             {
-                //Destroy(gameObject);
+                //TODO: game over
+                Debug.Log("Gameover");
             }
         }
 

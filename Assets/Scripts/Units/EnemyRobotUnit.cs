@@ -1,21 +1,16 @@
-﻿using System;
+﻿using Elements;
+using UnityEngine;
 
 namespace Units
 {
     public class EnemyRobotUnit : EnemyUnit
     {
-        protected override void TakeDamageInternal(ElementType elementType, int amount)
+        public EnemyRobotUnit() => Element = new ElectricElement();
+        protected override void TakeDamageInternal(ElementType elementType, int damage)
         {
-            switch (elementType)
+            if (health <= 0)
             {
-                case ElementType.None:
-                    health -= amount;
-                    break;
-                case ElementType.Electric:
-                    health -= amount * 2;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(elementType), elementType, null);
+                Debug.Log("ROBOT DEAD");
             }
         }
     }
