@@ -1,7 +1,7 @@
-﻿using Abilities;
-using Abilities.Damageable;
+﻿using Abilities.Damageable;
 using Abilities.Healable;
 using Energy;
+using Enhances;
 using Units;
 
 namespace Cards
@@ -14,8 +14,8 @@ namespace Cards
 
         protected override void UseCard()
         {
-            var damageAbility = new DamageAbility(10, ElementType.None);
-            var healAbility = new HealAbility(10, DurationType.Single);
+            var damageAbility = new DamageAbility(10, 1, ElementType.Electric);
+            var healAbility = new HealAbility(10, 1);
             healAbility.ApplyHeal(Player);
             damageAbility.ApplyDamage(Target);
         }

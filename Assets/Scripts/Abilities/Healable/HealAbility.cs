@@ -3,18 +3,18 @@
     public class HealAbility : IHealAbility
     {
         private readonly int _heal;
-        private readonly DurationType _durationType;
+        private readonly int _duration;
 
-        public HealAbility(int heal, DurationType durationType)
+        public HealAbility(int heal, int duration)
         {
             _heal = heal;
-            _durationType = durationType;
+            _duration = duration;
         }
 
         public int GetHeal() => _heal;
 
-        public DurationType GetDurationType() => _durationType;
+        public int GetDuration() => _duration;
 
-        public void ApplyHeal(IHealable healable) => healable.ApplyHeal(_durationType, _heal);
+        public void ApplyHeal(IHealable healable) => healable.ApplyHeal(_duration, _heal);
     }
 }

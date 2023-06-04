@@ -1,6 +1,8 @@
 ﻿using Abilities.Damageable;
 using Energy;
+using Enhances;
 using Units;
+using UnityEngine;
 
 namespace Cards
 {
@@ -12,7 +14,8 @@ namespace Cards
 
         protected override void UseCard()
         {
-            var damageAbility = new DamageAbility(10, ElementType.Electric);
+            var damageAbility = new DamageAbility(10, 2, ElementType.Electric);
+            Target.AddEnhance(new IgniteEnhance());
             damageAbility.ApplyDamage(Target);
         }
     }

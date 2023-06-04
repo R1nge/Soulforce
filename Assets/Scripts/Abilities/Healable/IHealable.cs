@@ -2,6 +2,6 @@
 {
     public interface IHealable
     {
-        void ApplyHeal(DurationType type, int amount);
+        void ApplyHeal(int duration, int amount);
     }
 }

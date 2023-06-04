@@ -1,10 +1,8 @@
-﻿using Abilities;
-
-namespace Units
+﻿namespace Units
 {
     public abstract class EnemyUnit : UnitBase
     {
-        protected override void ApplyHealInternal(DurationType durationType, int amount)
+        protected override void ApplyHealInternal(int duration, int amount)
         {
             health += amount;
         }

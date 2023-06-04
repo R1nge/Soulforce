@@ -14,7 +14,7 @@ namespace Units
             }
         }
 
-        protected override void ApplyHealInternal(DurationType durationType, int amount)
+        protected override void ApplyHealInternal(int duration, int amount)
         {
             health += amount;
         }

@@ -7,9 +7,9 @@ using VContainer.Unity;
 
 namespace Cards.CardFactory
 {
-    public class DamageTargetCardFactory : CardFactory
+    public class SingleElectricDamageTargetCardFactory : CardFactory
     {
-        public DamageTargetCardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase player, CardBehaviour cardPrefab, EnergyController energyController) : base(objectResolver, cardConfig, cardData, player, cardPrefab, energyController)
+        public SingleElectricDamageTargetCardFactory(IObjectResolver objectResolver, CardConfig cardConfig, CardData cardData, UnitBase player, CardBehaviour cardPrefab, EnergyController energyController) : base(objectResolver, cardConfig, cardData, player, cardPrefab, energyController)
         {
         }
 
