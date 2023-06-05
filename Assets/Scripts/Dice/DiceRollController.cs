@@ -21,7 +21,7 @@ namespace Dice
             _turnController = turnController;
         }
 
-        public void Initialize() => _turnController.OnTurnStarted += Roll;
+        public void Initialize() => _turnController.OnTurnEnded += Roll;
 
         private void Roll()
         {

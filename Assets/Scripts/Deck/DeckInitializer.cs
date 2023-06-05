@@ -32,7 +32,9 @@ namespace Deck
         private void Awake()
         {
             _cardFactory = new SingleElectricDamageTargetCardFactory(_objectResolver, cardConfig, cardData, _player, cardBehaviour, _energyController);
+            _deckController.AddCard(_cardFactory.CreateCard(new(-1, 0, 0), deckParent));
             _deckController.AddCard(_cardFactory.CreateCard(Vector3.zero, deckParent));
+            _deckController.AddCard(_cardFactory.CreateCard(new(1, 0, 0), deckParent));
         }
     }
 }

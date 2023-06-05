@@ -6,12 +6,10 @@ namespace Abilities.Damageable
     {
         private readonly int _damage;
         private readonly ElementType _elementType;
-        private readonly int _duration;
 
-        public DamageAbility(int damage, int duration, ElementType elementType)
+        public DamageAbility(int damage, ElementType elementType)
         {
             _damage = damage;
-            _duration = duration;
             _elementType = elementType;
         }
 

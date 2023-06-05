@@ -4,10 +4,7 @@
     {
         private readonly int _heal;
 
-        public HealAbility(int heal)
-        {
-            _heal = heal;
-        }
+        public HealAbility(int heal) => _heal = heal;
 
         public int GetHeal() => _heal;
         

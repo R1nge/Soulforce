@@ -14,7 +14,7 @@ namespace Cards
 
         protected override void UseCard()
         {
-            var damageAbility = new DamageAbility(10, 2, ElementType.Electric);
+            var damageAbility = new DamageAbility(1, ElementType.Electric);
             Target.AddEnhance(new IgniteEnhance(2));
             damageAbility.ApplyDamage(Target);
         }

@@ -14,7 +14,7 @@ namespace Cards
 
         protected override void UseCard()
         {
-            var damageAbility = new DamageAbility(10, 1, ElementType.Electric);
+            var damageAbility = new DamageAbility(10, ElementType.Electric);
             var healAbility = new HealAbility(10);
             healAbility.ApplyHeal(Player);
             damageAbility.ApplyDamage(Target);
