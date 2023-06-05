@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6947060345283645207}
   - component: {fileID: 6947060345283645204}
   - component: {fileID: 1337995367621272477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DamageCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,10 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bb491e7648420ba24635aac61b795d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardConfig: {fileID: 11400000, guid: 78709e62ec88b0249b1b0e63f267187a, type: 2}
-  cardData:
-    energyCost: 2
-  target: {fileID: 0}
 --- !u!114 &1337995367621272477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +87,7 @@ GameObject:
   - component: {fileID: 2093140449102370920}
   - component: {fileID: 2093140449102370926}
   - component: {fileID: 2093140449102370921}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +222,7 @@ GameObject:
   - component: {fileID: 2093140449186739437}
   - component: {fileID: 2093140449186739411}
   - component: {fileID: 2093140449186739410}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +358,7 @@ GameObject:
   - component: {fileID: 2093140449374848397}
   - component: {fileID: 2093140449374848396}
   - component: {fileID: 2093140449374848399}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +460,7 @@ GameObject:
   - component: {fileID: 2093140451087737816}
   - component: {fileID: 2093140451087737822}
   - component: {fileID: 2093140451087737817}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

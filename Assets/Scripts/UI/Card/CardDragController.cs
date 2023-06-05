@@ -8,10 +8,14 @@ namespace UI.Card
 {
     public class CardDragController : MonoBehaviour
     {
+        [SerializeField] private LayerMask ignore;
         private Vector3 _centerOffset;
         private readonly List<RaycastResult> _results = new();
         private Transform _draggedObject;
         private CardBehaviour _selectedCard;
+        private Camera _camera;
+
+        private void Awake() => _camera = Camera.main;
 
         private void Update()
         {
@@ -61,11 +65,19 @@ namespace UI.Card
             _draggedObject = null;
             _selectedCard = null;
         }
-        
+
         private void TryApplyCard()
         {
             if (!HasDraggedObject()) return;
-            _selectedCard.TryUseCard(FindObjectOfType<EnemyUnit>());
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(origin: ray.origin, direction: ray.direction, distance: Mathf.Infinity, layerMask: ~ignore);
+
+            if (hit.collider == null) return;
+
+            if (hit.transform.TryGetComponent(out UnitBase unit))
+            {
+                _selectedCard.TryUseCard(unit);
+            }
         }
 
         private PointerEventData GetCursorPosition()

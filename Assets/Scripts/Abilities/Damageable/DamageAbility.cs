@@ -1,4 +1,6 @@
-﻿namespace Abilities.Damageable
+﻿using Elements;
+
+namespace Abilities.Damageable
 {
     public class DamageAbility : IDamageAbility
     {
