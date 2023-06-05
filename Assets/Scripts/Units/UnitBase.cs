@@ -46,15 +46,18 @@ namespace Units
             }
         }
 
-        public void TakeDamage(ElementType elementType, int damage)
+        protected virtual void TakeDamageInternal(ElementType elementType, int damage) => health -= damage;
+
+        public void TakeDamage(ElementType element, int damage)
         {
-            health -= Element.TakeDamage(elementType, damage);
-            TakeDamageInternal(elementType, damage);
+            health -= Element.TakeDamage(element, damage);
+            TakeDamageInternal(element, damage);
         }
 
-        protected virtual void TakeDamageInternal(ElementType elementType, int damage) => health -= damage;
         public void ApplyHeal(int amount) => ApplyHealInternal(amount);
+
         protected virtual void ApplyHealInternal(int amount) => health += amount;
+
         public void AddEnhance(Enhance enhance) => _enhances.Add(enhance);
 
         private void OnDestroy()

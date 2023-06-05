@@ -2,7 +2,7 @@
 
 namespace Elements
 {
-    public class ElectricElement : IElement
+    public class FireElement : IElement
     {
         public int TakeDamage(ElementType type, int amount)
         {

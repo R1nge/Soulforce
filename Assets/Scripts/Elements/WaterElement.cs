@@ -2,7 +2,7 @@
 
 namespace Elements
 {
-    public class ElectricElement : IElement
+    public class WaterElement : IElement
     {
         public int TakeDamage(ElementType type, int amount)
         {
@@ -10,10 +10,10 @@ namespace Elements
             {
                 case ElementType.None:
                     return amount;
-                case ElementType.Fire:
+                case ElementType.Water:
                     return amount / 2;
                 case ElementType.Electric:
-                case ElementType.Water:
+                case ElementType.Fire:
                     return amount * 2;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
