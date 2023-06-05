@@ -11,6 +11,7 @@ namespace Units
             if (health <= 0)
             {
                 Debug.Log("ROBOT DEAD", this);
+                Destroy(gameObject);
             }
         }
     }

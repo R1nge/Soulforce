@@ -13,7 +13,7 @@ namespace Enhances
         public override void Execute(UnitBase target)
         {
             Debug.Log($"Ignite {target.name}");
-            target.TakeDamage(ElementType.Electric,1000);
+            target.TakeDamage(ElementType.Fire,10);
             base.Execute(target);
         }
     }

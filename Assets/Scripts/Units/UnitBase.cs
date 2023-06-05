@@ -13,7 +13,7 @@ namespace Units
     {
         [SerializeField] protected int health;
         protected IElement Element;
-        private readonly List<Enhance> _enhances = new();
+        private List<Enhance> _enhances = new();
         private TurnController _turnController;
 
         [Inject]
@@ -26,9 +26,15 @@ namespace Units
 
         private void ExecuteEnhances()
         {
-            foreach (var enhance in _enhances)
+            if (_enhances == null)
             {
-                enhance.Execute(this);
+                Debug.LogWarning("Enhances are null", this);
+                return;
+            }
+
+            for (var i = 0; i < _enhances.Count; i++)
+            {
+                _enhances[i].Execute(this);
             }
 
             for (var i = _enhances.Count - 1; i >= 0; i--)
@@ -51,6 +57,10 @@ namespace Units
         protected virtual void ApplyHealInternal(int amount) => health += amount;
         public void AddEnhance(Enhance enhance) => _enhances.Add(enhance);
 
-        private void OnDestroy() => _turnController.OnTurnStarted -= ExecuteEnhances;
+        private void OnDestroy()
+        {
+            _turnController.OnTurnStarted -= ExecuteEnhances;
+            _enhances = null;
+        }
     }
 }
