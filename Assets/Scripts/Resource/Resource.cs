@@ -5,13 +5,13 @@ namespace Resource
 {
     public abstract class Resource
     {
-        public int MaxAmount { get; private set; }
-        public int CurrentAmount { get; private set; }
+        private readonly int _maxAmount;
+        private int CurrentAmount { get; set; }
         public event Action<int> OnResourceChanged;
 
         protected Resource(int maxAmount)
         {
-            MaxAmount = maxAmount;
+            _maxAmount = maxAmount;
             CurrentAmount = maxAmount;
         }
 
@@ -25,10 +25,14 @@ namespace Resource
 
             if (CurrentAmount - amount < 0) return false;
             CurrentAmount -= amount;
-            OnResourceChanged?.Invoke(amount);
+            OnResourceChanged?.Invoke(CurrentAmount);
             return true;
         }
 
-        public void ResetAmount() => CurrentAmount = MaxAmount;
+        public void ResetAmount()
+        {
+            CurrentAmount = _maxAmount;
+            OnResourceChanged?.Invoke(CurrentAmount);
+        }
     }
 }

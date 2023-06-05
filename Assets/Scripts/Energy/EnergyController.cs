@@ -6,7 +6,7 @@ using VContainer.Unity;
 
 namespace Energy
 {
-    public class EnergyController : IInitializable, IDisposable
+    public class EnergyController : IInitializable, IStartable, IDisposable
     {
         private readonly EnergyResource _energyResource = new(200);
         private readonly TurnController _turnController;
@@ -18,7 +18,9 @@ namespace Energy
         }
 
         public void Initialize() => _turnController.OnTurnStarted += ResetEnergy;
-        
+
+        public void Start() => _energyResource.ResetAmount();
+
         public Resource.Resource GetEnergyResource() => _energyResource;
 
         private void ResetEnergy() => _energyResource.ResetAmount();
