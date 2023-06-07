@@ -1,5 +1,5 @@
 ﻿using System;
-using TurnFlow;
+using GameFlow;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,7 +7,7 @@ namespace Dice
 {
     public class DiceRollController : IInitializable, IDisposable
     {
-        private readonly TurnController _turnController;
+        private readonly GameStateController _gameStateController;
         private readonly Dice _playerDice = new(), _enemyDice = new();
 
         public event Action<int, int> OnDiceRolled;
@@ -16,12 +16,22 @@ namespace Dice
         public event Action OnTie;
 
         [Inject]
-        private DiceRollController(TurnController turnController)
+        private DiceRollController(GameStateController gameStateController)
         {
-            _turnController = turnController;
+            _gameStateController = gameStateController;
         }
 
-        public void Initialize() => _turnController.OnTurnEnded += Roll;
+        public void Initialize() => _gameStateController.OnStateChanged += Roll;
+
+        private void Roll(IGameState state)
+        {
+            switch (state)
+            {
+                case PlayerTurnState:
+                    Roll();
+                    break;
+            }
+        }
 
         private void Roll()
         {
@@ -42,6 +52,6 @@ namespace Dice
             }
         }
 
-        public void Dispose() => _turnController.OnTurnStarted -= Roll;
+        public void Dispose() => _gameStateController.OnStateChanged -= Roll;
     }
 }

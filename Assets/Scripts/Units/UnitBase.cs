@@ -3,7 +3,7 @@ using Abilities.Damageable;
 using Abilities.Healable;
 using Elements;
 using Enhances;
-using TurnFlow;
+using GameFlow;
 using UnityEngine;
 using VContainer;
 
@@ -14,17 +14,17 @@ namespace Units
         [SerializeField] protected int health;
         protected IElement Element;
         private List<Enhance> _enhances = new();
-        private TurnController _turnController;
+        private GameStateController _gameStateController;
 
         [Inject]
-        protected void Construct(TurnController turnController)
+        protected void Construct(GameStateController gameStateController)
         {
-            _turnController = turnController;
+            _gameStateController = gameStateController;
         }
 
-        private void Awake() => _turnController.OnTurnEnded += ExecuteEnhances;
+        private void Awake() => _gameStateController.OnStateExited += ExecuteEnhances;
 
-        private void ExecuteEnhances()
+        private void ExecuteEnhances(IGameState state)
         {
             if (_enhances == null)
             {
@@ -62,7 +62,7 @@ namespace Units
 
         private void OnDestroy()
         {
-            _turnController.OnTurnStarted -= ExecuteEnhances;
+            _gameStateController.OnStateExited -= ExecuteEnhances;
             _enhances = null;
         }
     }

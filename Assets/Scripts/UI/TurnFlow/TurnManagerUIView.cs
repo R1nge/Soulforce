@@ -1,4 +1,7 @@
-﻿using UnityEngine.UI;
+﻿using System;
+using GameFlow;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.TurnFlow
 {
@@ -11,14 +14,21 @@ namespace UI.TurnFlow
             _endTurnButton = endTurnButton;
         }
 
-        public void OnTurnControllerStarted()
+        public void OnPlayerTurnStarted(IGameState state)
         {
-            _endTurnButton.interactable = true;
+            switch (state)
+            {
+                case PlayerTurnState:
+                    _endTurnButton.interactable = true;
+                    Debug.Log("INTERACTABLE");
+                    break;
+            }
         }
 
-        public void OnTurnControllerEnded()
+        public void OnPlayerTurnEnded(IGameState state)
         {
             _endTurnButton.interactable = false;
+            Debug.Log("IN INTERACTABLE");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using TurnFlow;
+﻿using GameFlow;
 using UnityEngine;
 using VContainer;
 
@@ -8,27 +8,27 @@ namespace UI.TurnFlow
     {
         [SerializeField] private TurnManagerUIModel model;
         private TurnManagerUIView _view;
-        private TurnController _turnController;
+        private GameStateController _gameStateController;
 
         [Inject]
-        private void Construct(TurnController turnController)
+        private void Construct(GameStateController gameStateController)
         {
-            _turnController = turnController;
+            _gameStateController = gameStateController;
         }
 
         private void Awake()
         {
             _view = new(model.endTurnButton);
-            _turnController.OnTurnStarted += _view.OnTurnControllerStarted;
-            _turnController.OnTurnEnded += _view.OnTurnControllerEnded;
+            _gameStateController.OnStateEntered += _view.OnPlayerTurnStarted;
+            _gameStateController.OnStateExited += _view.OnPlayerTurnEnded;
         }
 
-        public void EndTurn() => _turnController.EndTurn();
+        public void EndTurn() => _gameStateController.EndTurn();
 
         private void OnDestroy()
         {
-            _turnController.OnTurnStarted -= _view.OnTurnControllerStarted;
-            _turnController.OnTurnEnded -= _view.OnTurnControllerEnded;
+            _gameStateController.OnStateEntered -= _view.OnPlayerTurnStarted;
+            _gameStateController.OnStateExited -= _view.OnPlayerTurnEnded;
         }
     }
 }
